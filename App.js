@@ -1,26 +1,33 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-class App extends React.Component{
+class App extends React.Component {
+    constructor(){
+        super();
+        this.state = {txt: 'this is the state txt'}
+        this.update = this.update.bind(this)
+    }
+    
+    update(e){
+        this.setState({txt: e.target.value})
+    }
+    
     render(){
-        let txt = this.props.txt;
-        let cat = this.props.cat;
-        return <h1>{txt}{cat}</h1>
+        return (
+            <div>
+                <Widget txt={this.state.txt} update={this.update}/>
+            </div>
+        )
     }
 }
 
-App.propTypes = {
-    txt: React.PropTypes.string,
-    cat: React.PropTypes.number.isRequired
+const Widget = (props) => {
+    return (
+        <div>
+            <input type="text"
+                onChange={props.update} />
+            <h1>{props.txt}</h1>
+        </div>
+    )
 }
-
-App.defaultProps = {
-    txt: 'this is default txt'
-}
-
-ReactDOM.render(
-    <App cat={5} />,
-    document.getElementById('app')
-);
 
 export default App;
