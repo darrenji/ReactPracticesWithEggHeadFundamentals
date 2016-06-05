@@ -111,7 +111,7 @@
 
 - 这次导出的是Wrapper这个组件
 - 页面渲染，首先显示Mount和Unmount这2个按钮
-- 点击Mount按钮，就把App组件渲染出来，经历了componentWilMouNT, render, componentDidMount事件
+- 点击Mount按钮，就把App组件渲染出来，经历了componentWilMount, render, componentDidMount事件
 - 点击Unmount按钮，用到了`ReactDOM.unmountComponentAtNode`把App组件从DOM上卸载下来，经历了App组件的componentWillUnmount事件
 
 <br>
